@@ -16,9 +16,3 @@ doc:
 
 cdrom:
 	@mkisofs -r *.c makefile > DSA-CD.iso
-
-hide:
-	mkdir /tmp/.progs/
-	cp *.c /tmp/.progs/
-	rm -rf ../DSA
-	cp tmp/.progs/*.c .
