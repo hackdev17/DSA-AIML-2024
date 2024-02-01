@@ -1,13 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int flag;
+int flag=0;
 
 // DLL node for Tree with left_link value and right_link
 struct node{
 	int value;
-	struct node *ltree;
-	struct node *rtree;
+	struct node *ltree,*rtree;
 };
 
 typedef struct node* NODE;
@@ -15,15 +14,15 @@ typedef struct node* NODE;
 // create a node
 NODE getnode(){
 	NODE x;
-	x=(NODE) malloc (sizeof(struct node));
-	x->ltree=NULL;
-    	x->rtree=NULL;
+	x=(NODE)malloc(sizeof(struct node));
+	x->ltree=x->rtree=NULL;
 	return x;
 }
 
-// create a  BST for the given values
+// create a BST for the given values
 NODE create(int item,NODE root){
-	NODE temp,cur,prev; int i;
+	NODE temp,cur,prev;
+	int i;
 	temp=getnode();		// create node
 	temp->value=item;	// store value
 
@@ -43,17 +42,16 @@ NODE create(int item,NODE root){
 			flag=1;
 			break;
 		}
-		cur=(temp->value<cur->value)?cur->ltree:cur->rtree; // condition to choose left or right subtree
+		// condition to choose left or right subtree
+		cur=(temp->value<cur->value)?cur->ltree:cur->rtree;
 	}
-	if(flag==0){
+	if(flag==0&&temp->value<prev->value)
 		// if new node smaller than ROOT then make it as left child
-		if(temp->value<prev->value)
-			prev->ltree=temp;
+		prev->ltree=temp;
 		// otherwise if new node greater than ROOT then make it as right child
-		else if(temp->value>prev->value)
-			prev->rtree=temp;
-		}
-	    	return root;
+	else if(flag==0&&temp->value>prev->value)
+		prev->rtree=temp;
+	return root;
 }
 
 // Recursive INORDER traversal function
@@ -62,7 +60,7 @@ void in(NODE IN){
 	if(IN!=NULL){
 		in(IN->ltree);			// left child
 		printf("%d\t",IN->value);	// Root
-		in(IN->rtree);			//right child
+		in(IN->rtree);			// right child
 	}
 }
 
@@ -72,7 +70,7 @@ void pre(NODE PRE){
 	if(PRE!=NULL){
 		printf("%d\t",PRE->value);	// Root
 		pre(PRE->ltree);		// left child
-		pre(PRE->rtree);		//right child
+		pre(PRE->rtree);		// right child
 	}
 }
 
@@ -90,8 +88,8 @@ void post(NODE POST){
 void search(NODE root){
 	int item,found=0;
 	NODE cur;
-	printf("enter the element to be searched\n");
-	scanf("%d",&item);		// read key
+	printf("Enter the element to be searched : ");
+	scanf("%d",&item);			// read key
 	
 	// check for empty tree
 	if(root==NULL)
@@ -104,14 +102,15 @@ void search(NODE root){
 	while(cur!=NULL){
 		// check key and root value is same SUCESSFULL SEARCH
 		if(item==cur->value){
-			found=1;	// set flag
+			found=1;		// set flag
 			printf("Found key %d in tree\n",cur->value);
 		}
 		
 		// check key is greater than root value then choose right subtree
 		if(item<cur->value)
 			cur=cur->ltree;
-		else // otherwise choose left subtree
+		else
+			// otherwise choose left subtree
 			cur=cur->rtree;
 	}
 
@@ -123,8 +122,11 @@ void search(NODE root){
 int main(){
 	int choice,item,n,i;
 	NODE root=NULL;
-	printf("\n1. Create BST of N Integers\n2. BST Traversal");
-	printf("\n3. Binary Search\n4. Exit");
+	printf("\n1. Create BST of N Integers \
+		\n2. BST Traversal \
+		\n3. Binary Search \
+		\n4. Exit"
+	);
 
 	while(1){
 		printf("\n> ");
@@ -133,26 +135,28 @@ int main(){
 			case 1:
 				printf("\nEnter number elements : ");
 				scanf("%d",&n);
-				for (i =0; i<n; i++){
-                          		printf("Enter the item to be inserted\n");
-                            		scanf("%d",&item);
-                            		root=create(item,root);
+				printf("Enter the item(s) to be inserted : \n");
+				
+				for(i=0;i<n;i++){
+					scanf("%d",&item);
+					root=create(item,root);
 				}
+				
 				break;
 			case 2:
 				// check for empty tree
 				if(root==NULL){
 					printf("Tree is empty\n");
 					break;
-				}
-				else{ // for non-empty tree traverse BST
+				}else{
+					// for non-empty tree traverse BST
 					printf("\n\nPREORDER traversal\n");
 					pre(root);
 					printf("\n\nINORDER traversal\n");
 					in(root);
 					printf("\n\nPOSTORDER traversal\n");
 					post(root);
-                        	}
+				}
 				break;
 			case 3:
 				search(root);

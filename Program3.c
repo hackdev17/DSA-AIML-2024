@@ -11,25 +11,78 @@
  * operations.
  */
 
-#include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 
 #define max_size 5
 
 int stack[max_size],top=-1,flag=1;
-int i,temp,item,rev[max_size],num[max_size];
-void push();
-void pop();
-void display();
-void pali();
+int i,ispali,temp,item,rev[max_size],num[max_size];
+
+void push(){
+	if(top==(max_size-1))
+		printf("\nStack Overflow !");
+	else{
+		printf("Enter the element to be inserted : ");
+		scanf("%d",&item);
+		top++;
+		stack[top]=item;
+	}
+	temp=top;
+}
+
+void pop(){
+	if(top==-1){
+		printf("Stack Underflow !\n");
+		flag=0;
+	}else{
+		item=stack[top];
+		top--;
+	}
+}
+
+void pali(){
+	if(top==-1)
+		printf("Push some elements into the stack first !\n");
+	else{
+		while(top!=-1){
+			rev[top]=stack[top];
+			pop();
+		}
+		top=temp;
+		for(i=0;i<=temp;i++)
+			if(stack[top--]==rev[i]&&i==temp)
+				ispali=1;
+			else
+				ispali=0;
+	}
+		if(ispali)
+			printf("Palindrome !\n");
+		else 
+			printf("Not Palindrome\n");
+}
+
+void display(){
+	int i;
+	top=temp;
+	
+	if(top==-1)
+		printf("Stack is Empty !\n");
+	else{
+		printf("The stack elements are : ");
+		for(i=top;i>=0;i--)
+			printf("%d ",stack[i]);
+		printf("\n");
+	}
+}
 
 int main(){
 	int choice;
 	printf("\n\n--------STACK OPERATIONS--------\n");
 	printf("1.Push\n2.Pop\n3.Palindrome\n4.Display\n5.Exit\n");
 	while(1){
-		printf("\nEnter your choice :\n> ");
+		printf("> ");
 		scanf("%d",&choice);
 		switch(choice){
 			case 1:
@@ -38,7 +91,7 @@ int main(){
 			case 2:
 				pop();
 				if(flag)
-					printf("\nThe poped element : %d",item);
+					printf("\nThe poped element : %d\n",item);
 				temp=top;
 				break;
 			case 3:
@@ -59,58 +112,3 @@ int main(){
 	}
 }
 
-void push(){
-	if(top==(max_size-1))
-		printf("\nStack Overflow !");
-	else{
-		printf("Enter the element to be inserted :\n> ");
-		scanf("%d",&item);
-		top++;
-		stack[top]=item;
-	}
-	temp=top;
-}
-
-void pop(){
-	if(top==-1){
-		printf("Stack Underflow !");
-		flag=0;
-	}else{
-		item=stack[top];
-		top--;
-	}
-}
-
-void pali(){
-	i=0;
-	if(top==-1)
-		printf("Push some elements into the stack first !");
-	else{
-		while(top!=-1){
-			rev[top]=stack[top];
-			pop();
-		}
-		top=temp;
-		for(i=0;i<=temp;i++){
-			if(stack[top--]==rev[i]){
-				if(i==temp){
-					printf("Palindrome : ");
-					return;
-				}
-			}
-		}
-		printf("Not Palindrome\n");
-	}
-}
-
-void display(){
-	int i; top=temp;
-	if(top==-1)
-		printf("\nStack is Empty:");
-	else{
-		printf("\nThe stack elements are:\n" );
-		for(i=top;i>=0;i--)
-			printf("%d\n",stack[i]);
-		
-	}
-}

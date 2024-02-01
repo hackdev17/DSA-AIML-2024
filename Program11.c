@@ -1,9 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int key[20],n,m;
-int *ht,ind;
-int count=0;
+int key[20],n,m,*ht,ind,i,count=0;
 
 void insert(int key){
 	ind=key%m;
@@ -14,14 +12,12 @@ void insert(int key){
 }
 
 void display(){
-	int i;
-
 	if(count==0){
 		printf("\nHash Table is empty !\n");
 		exit(0);
 	}
 
-	printf("\nHash Table contents are :\n ");
+	printf("\nHash Table contents are :\n");
 	for(i=0;i<m;i++)
 		printf("\n T[%d] --> %d ",i,ht[i]);
 	printf("\n");
@@ -29,7 +25,6 @@ void display(){
 }
 
 void main(){
-	int i;
 	printf("\nEnter the number of employee records (N) : ");
 	scanf("%d",&n);
 
@@ -45,13 +40,11 @@ void main(){
 		scanf("%d",&key[i]);
 
 	for(i=0;i<n;i++){
-		if(count == m){
-			printf("\n~~~Hash table is full. Cannot insert the record %d key~~~",i+1);
+		if(count==m){
+			printf("\nHash table is full ! Cannot insert the record %d key",i+1);
 			break;
 		}
-
 		insert(key[i]);
 	}
-
 	display();	
 }

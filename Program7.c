@@ -17,6 +17,7 @@ NODE getnode(){
 	x->link==NULL;
 	return x;
 }
+
 void read(){
 	temp=getnode();
 	printf("Enter USN : ");
