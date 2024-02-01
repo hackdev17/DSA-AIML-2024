@@ -1,9 +1,10 @@
 # DSA Lab Programs AIML 2024
-
+---
 ## Getting Started
 The Programs here mentioned are the part of the subject "Data Science and Algorithm". <br/>
 They are the programs taught along with theory.
-
+---
+## Getting Started
 ### Compilation
 Compilation of the following problem don't requier advanced tools. <br/>
 It will be ran on just on either `cc`, `clang` or `gcc`.
@@ -25,11 +26,11 @@ make clean
 
 #### CD-ROM
 Make a CD-ROM Storage for copying problems in Virtual Machine(s). <br/>
-This tool may need the package `cdr-tools` with the utility `mkisofs`.
+This tool may need the package ``cdr-tools`` with the utility `mkisofs`.
 ```
 make cdrom
 ```
-
+---
 ## LICENSE
 THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION,<br/>
 THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
