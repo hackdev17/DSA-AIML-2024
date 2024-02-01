@@ -5,7 +5,6 @@ The Programs here mentioned are the part of the subject "Data Science and Algori
 They are the programs taught along with theory.
 
 ---
-## Getting Started
 ### Compilation
 Compilation of the following problem don't requier advanced tools. <br/>
 It will be ran on just on either `cc` , `clang` or `gcc` .
