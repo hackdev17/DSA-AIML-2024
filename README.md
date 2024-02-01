@@ -44,7 +44,7 @@ make build
 ```
 
 #### Clean
-Remove all compiled binaries `*.bin` , documents `*.pdf` , archives `*.tgz` and cdroms `*.iso` .
+Remove all compiled binaries `*.bin` .
 ```
 make clean
 ```

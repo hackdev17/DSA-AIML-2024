@@ -4,15 +4,18 @@ build:
 	@echo "Build Done"
 
 clean:
-	@echo "Removing compiled, pdf, iso, archive files ..."
-	@rm -rf *.bin doc/tmp doc/_minted* doc/*.pdf *.pdf *.iso *.tgz
+	@echo "Removing compiled files ..."
+	@rm -rf *.bin
 
-doc:	clean
+doc:
 	@latexmk -pdf -auxdir=tmp/ -shell-escape -cd doc/*.tex
 	@gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=DSA-LAB.pdf -dBATCH doc/{2..7}.pdf
 
-ark:	clean
+ark:
 	@tar -zcvf archive.tgz *.c makefile doc/
 
-cdrom:	clean ark
+cdrom:	ark
 	@mkisofs archive.tgz > DSA-CD.iso
+
+# avoid up to date
+.PHONY: doc
