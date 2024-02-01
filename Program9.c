@@ -21,10 +21,7 @@ NODE readpoly(){
 	NODE temp,head,cur;
 	char ch;
 	head=getnode();
-	head->coef=-1;
-	head->x=-1;
-	head->y=-1;
-	head->z=-1;
+	head->coef=head->x=head->y=head->z=-1;
 	head->link=head;
 	do{
 		temp=getnode();
@@ -50,17 +47,9 @@ NODE readpoly(){
 }
 
 int compare(NODE a,NODE b){
-	if(a->x>b->x)
+	if((a->x>b->x)||(a->y>b->y)||(a->z>b->z))
 		return 1;
-	else if(a->x<b->x)
-		return -1;
-	else if(a->y>b->y)
-		return 1;
-	else if(a->y<b->y)
-		return -1;
-	else if(a->z>b->z)
-		return 1;
-	else if(a->z<b->z)
+	else if((a->x<b->x)||(a->y<b->y)||(a->z<b->z))
 		return -1;
 	return 0;
 }
@@ -83,10 +72,7 @@ NODE addpoly(NODE a,NODE b){
 	a=a->link;
 	b=b->link;
 	c=getnode();
-	c->coef=-1;
-	c->x=-1;
-	c->y=-1;
-	c->z=-1;
+	c->coef=c->x=c->y=c->z=-1;
 	lastc=c;
 	
 	do{
@@ -102,7 +88,8 @@ NODE addpoly(NODE a,NODE b){
 					sum=a->coef+b->coef;
 					if(sum)
 						attach(sum,a->x,a->y,a->z,&lastc);
-					a=a->link;b=b->link;
+					a=a->link;
+					b=b->link;
 				}
 				break;
 			case 1:
@@ -142,9 +129,7 @@ void evaluate(NODE ptr){
 	
 	// read values of X,Y and Z
 	printf("\nEnter the values of x,y,z : ");
-	scanf("%d",&x);
-	scanf("%d",&y);
-	scanf("%d",&z);
+	scanf("%d%d%d",&x,&y,&z);
 	
 	// start with HEAD
 	cur=ptr->link;
@@ -165,9 +150,13 @@ void evaluate(NODE ptr){
 void main(void){
 	int i,ch;
 	NODE a=NULL,b,c;
-	printf("\n1. Represent first polynomial A\n2. Represent Second polynomial B");
-	printf("\n3. Display the polynomial A\n4. Display the polynomial B");
-	printf("\n5. Add A & B polynomials\n6. Evaluate polynomial C\n7. Exit");
+	printf("\n1. Represent first polynomial A \
+		\n2. Represent Second polynomial B \
+		\n3. Display the polynomial A \
+		\n4. Display the polynomial B \
+		\n5. Add A & B polynomials \
+		\n6. Evaluate polynomial C \
+		\n7. Exit");
 	
 	while(1){
 		printf("\n> ");
