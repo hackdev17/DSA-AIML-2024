@@ -1,8 +1,7 @@
 # DSA Lab Programs AIML 2024
 ---
 ## Getting Started
-The Programs here mentioned are the part of the subject "Data Science and Algorithm". <br/>
-They are the programs taught along with theory.
+The Programs here mentioned are the part of the subject "Data Science and Algorithm".
 
 ### Tree Structure
 ```
