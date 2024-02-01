@@ -69,7 +69,7 @@ tar -xvf archive.tgz
 
 #### CD-ROM
 Make a CD-ROM Storage for copying archived C sources in Virtual Machine(s). <br/>
-This tool may need the package `cdr-tools` with the utility `mkisofs` .
+You need the package `cdr-tools` with the utility `mkisofs` .
 ```
 make cdrom
 ```
