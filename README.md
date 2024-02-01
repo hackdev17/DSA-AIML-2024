@@ -7,10 +7,10 @@ They are the programs taught along with theory.
 ## Getting Started
 ### Compilation
 Compilation of the following problem don't requier advanced tools. <br/>
-It will be ran on just on either `cc`, `clang` or `gcc`.
+It will be ran on just on either `cc` , `clang` or `gcc` .
 
 ### Makefile
-Here we are using makefile to compile the Program(s) in bulk with different names with extension `*.bin`.
+Here we are using makefile to compile the Program(s) in bulk with different names with extension `*.bin` .
 
 #### Building
 Compile all files once.
@@ -26,7 +26,7 @@ make clean
 
 #### CD-ROM
 Make a CD-ROM Storage for copying problems in Virtual Machine(s). <br/>
-This tool may need the package ``cdr-tools`` with the utility `mkisofs`.
+This tool may need the package `cdr-tools` with the utility `mkisofs` .
 ```
 make cdrom
 ```
