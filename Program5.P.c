@@ -1,10 +1,3 @@
-/*						Program 5
- * Develop a Program in C for the following Stack applications
- * A) Evaluation of Suffix expression with single digit operands and operators
- *	+, -, *, /, %, ^
- * B) Solving Tower of Hanoi problem with n disks
- */
-
 #include<stdio.h>
 #include<ctype.h>
 #include<math.h>

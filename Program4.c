@@ -1,8 +1,3 @@
-/*						Program 3
- * Develop a C program for converting an Infix expression to Postfix expression program should support both
- * Parameterized and free Parameterized expression with operators +,-,*,/,%,^,& alphanumeric operands
- */
-
 #include <ctype.h>
 #include <stdio.h>
 

@@ -1,13 +1,3 @@
-/*
- *				Program 2
- * Develop a program in C for operation on string
- *	a. Read a main string STR and a pattern PAT and Replace string REP
- *	b. Perform pattern matching option :
- *	   Find and replace all the answers of PAT in STR with REP,
- *	   if PAT exist in STR, support the above program with function for
- *	   each of above operation, Don't use builtin functions.
- */
-
 #include<stdio.h>
 
 void main(){
