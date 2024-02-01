@@ -65,7 +65,8 @@ void display_count(){
 			temp=temp->link;
 		}
 
-		printf("%s\t%s\t\t%s\t\t%llu\t\t%d\n",temp->usn,temp->name,temp->branch,temp->phno,temp->sem);
+		printf("%s\t%s\t\t%s\t\t%llu\t\t%d\n", \
+			temp->usn,temp->name,temp->branch,temp->phno,temp->sem);
 		printf("\nStudent count is %d\n",count);
 	}
 }
