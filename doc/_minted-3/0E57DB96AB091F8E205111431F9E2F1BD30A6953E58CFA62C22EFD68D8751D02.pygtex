@@ -1,0 +1,100 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}string.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}stdlib.h\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}define max\PYGZus{}size 5}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{stack}\PYG{p}{[}\PYG{n}{max\PYGZus{}size}\PYG{p}{],}\PYG{n}{top}\PYG{o}{=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{,}\PYG{n}{flag}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{,}\PYG{n}{ispali}\PYG{p}{,}\PYG{n}{temp}\PYG{p}{,}\PYG{n}{item}\PYG{p}{,}\PYG{n}{rev}\PYG{p}{[}\PYG{n}{max\PYGZus{}size}\PYG{p}{],}\PYG{n}{num}\PYG{p}{[}\PYG{n}{max\PYGZus{}size}\PYG{p}{];}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{push}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{top}\PYG{o}{==}\PYG{p}{(}\PYG{n}{max\PYGZus{}size}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{))}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Stack Overflow !\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enter the element to be inserted : \PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{		}\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{item}\PYG{p}{);}
+\PYG{+w}{		}\PYG{n}{stack}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]}\PYG{o}{=}\PYG{n}{item}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{n}{temp}\PYG{o}{=}\PYG{n}{top}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{pop}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{top}\PYG{o}{==}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Stack Underflow !}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{		}\PYG{n}{flag}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}\PYG{k}{else}
+\PYG{+w}{		}\PYG{n}{item}\PYG{o}{=}\PYG{n}{stack}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{pali}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{top}\PYG{o}{==}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Push some elements into the stack first !}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{while}\PYG{p}{(}\PYG{n}{top}\PYG{o}{!=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{			}\PYG{n}{rev}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]}\PYG{o}{=}\PYG{n}{stack}\PYG{p}{[}\PYG{n}{top}\PYG{p}{];}
+\PYG{+w}{			}\PYG{n}{pop}\PYG{p}{();}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{n}{top}\PYG{o}{=}\PYG{n}{temp}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{for}\PYG{p}{(}\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{temp}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{stack}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{]}\PYG{o}{==}\PYG{n}{rev}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{i}\PYG{o}{==}\PYG{n}{temp}\PYG{p}{)}
+\PYG{+w}{				}\PYG{n}{ispali}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{else}
+\PYG{+w}{				}\PYG{n}{ispali}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{ispali}\PYG{p}{)}
+\PYG{+w}{			}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Palindrome !}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{		}\PYG{k}{else}\PYG{+w}{ }
+\PYG{+w}{			}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Not Palindrome}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{display}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{top}\PYG{o}{=}\PYG{n}{temp}\PYG{p}{;}
+\PYG{+w}{	}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{top}\PYG{o}{==}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Stack is Empty !}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}The stack elements are : \PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{		}\PYG{k}{for}\PYG{p}{(}\PYG{n}{i}\PYG{o}{=}\PYG{n}{top}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)}
+\PYG{+w}{			}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZdq{}}\PYG{p}{,}\PYG{n}{stack}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{choice}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n\PYGZbs{}n}\PYG{l+s}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}STACK OPERATIONS\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}1.Push}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{2.Pop}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{3.Palindrome}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{4.Display}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{5.Exit}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{while}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZgt{} \PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{		}\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{choice}\PYG{p}{);}
+\PYG{+w}{		}\PYG{k}{switch}\PYG{p}{(}\PYG{n}{choice}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{			}\PYG{k}{case}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{:}
+\PYG{+w}{				}\PYG{n}{push}\PYG{p}{();}
+\PYG{+w}{				}\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{case}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{:}
+\PYG{+w}{				}\PYG{n}{pop}\PYG{p}{();}
+\PYG{+w}{				}\PYG{k}{if}\PYG{p}{(}\PYG{n}{flag}\PYG{p}{)}
+\PYG{+w}{					}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{The poped element : \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{item}\PYG{p}{);}
+\PYG{+w}{				}\PYG{n}{temp}\PYG{o}{=}\PYG{n}{top}\PYG{p}{;}
+\PYG{+w}{				}\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{case}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{:}
+\PYG{+w}{				}\PYG{n}{pali}\PYG{p}{();}
+\PYG{+w}{				}\PYG{n}{top}\PYG{o}{=}\PYG{n}{temp}\PYG{p}{;}
+\PYG{+w}{				}\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{case}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{:}
+\PYG{+w}{				}\PYG{n}{display}\PYG{p}{();}
+\PYG{+w}{				}\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{case}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{:}
+\PYG{+w}{				}\PYG{n}{exit}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{				}\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{			}
+\PYG{+w}{			}\PYG{k}{default}\PYG{o}{:}
+\PYG{+w}{				}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Invalid choice !\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{				}\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}
