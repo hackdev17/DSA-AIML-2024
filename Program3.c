@@ -4,8 +4,7 @@
 
 #define max_size 5
 
-int stack[max_size],top=-1,flag=1;
-int i,ispali,temp,item,rev[max_size],num[max_size];
+int stack[max_size],top=-1,i,item;
 
 void push(){
 	if(top==(max_size-1))
@@ -15,42 +14,29 @@ void push(){
 		scanf("%d",&item);
 		stack[++top]=item;
 	}
-	temp=top;
 }
 
 void pop(){
-	if(top==-1){
+	if(top==-1)
 		printf("Stack Underflow !\n");
-		flag=0;
-	}else
-		item=stack[top--];
+	else
+		printf("\nThe poped element : %d\n",stack[top--]);
 }
 
 void pali(){
 	if(top==-1)
 		printf("Push some elements into the stack first !\n");
-	else{
-		while(top!=-1){
-			rev[top]=stack[top];
-			pop();
-		}
-		top=temp;
-		for(i=0;i<=temp;i++)
-			if(stack[top--]==rev[i]&&i==temp)
-				ispali=1;
-			else
-				ispali=0;
-	}
-		if(ispali)
-			printf("Palindrome !\n");
-		else 
-			printf("Not Palindrome\n");
+	else
+		for(i=top;i>=0;i--)
+			if(stack[i]!=stack[top-i]){
+				printf("Not Palindrome\n");
+				return;
+			}
+
+	printf("Palindrome !\n");
 }
 
 void display(){
-	int i;
-	top=temp;
-	
 	if(top==-1)
 		printf("Stack is Empty !\n");
 	else{
@@ -74,13 +60,9 @@ int main(){
 				break;
 			case 2:
 				pop();
-				if(flag)
-					printf("\nThe poped element : %d\n",item);
-				temp=top;
 				break;
 			case 3:
 				pali();
-				top=temp;
 				break;
 			case 4:
 				display();
@@ -95,4 +77,3 @@ int main(){
 		}
 	}
 }
-

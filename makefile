@@ -1,6 +1,6 @@
 build:
 	@echo "Building ..."
-	@for i in *.c ; do cc $$i -o $${i%.c}.bin -lm ; done
+	@for i in *.c ; do cc $$i -Wall -o $${i%.c}.bin -lm ; done
 	@echo "Build Done"
 
 clean:

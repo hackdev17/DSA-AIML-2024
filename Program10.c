@@ -22,7 +22,6 @@ NODE getnode(){
 // create a BST for the given values
 NODE create(int item,NODE root){
 	NODE temp,cur,prev;
-	int i;
 	temp=getnode();		// create node
 	temp->value=item;	// store value
 

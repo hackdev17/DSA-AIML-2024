@@ -1,0 +1,49 @@
+Program11.c:27:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+   27 | void main(){
+      |      ^~~~
+Program2.c:3:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+    3 | void main(){
+      |      ^~~~
+Program4.c:35:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+   35 | void main(){
+      |      ^~~~
+Program4.c: In function ‘main’:
+Program4.c:36:35: warning: variable ‘elem’ set but not used [-Wunused-but-set-variable]
+   36 |         char infx[50],pofx[50],ch,elem;
+      |                                   ^~~~
+Program4.c: In function ‘pr’:
+Program4.c:33:1: warning: control reaches end of non-void function [-Wreturn-type]
+   33 | }
+      | ^
+Program5.H.c:16:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+   16 | void main(){
+      |      ^~~~
+Program5.H.c: In function ‘main’:
+Program5.H.c:18:18: warning: unused variable ‘c’ [-Wunused-variable]
+   18 |         char a,b,c;
+      |                  ^
+Program5.H.c:18:16: warning: unused variable ‘b’ [-Wunused-variable]
+   18 |         char a,b,c;
+      |                ^
+Program5.H.c:18:14: warning: unused variable ‘a’ [-Wunused-variable]
+   18 |         char a,b,c;
+      |              ^
+Program5.P.c:28:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+   28 | void main(){
+      |      ^~~~
+Program6.c:7:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+    7 | void main(){
+      |      ^~~~
+Program7.c:127:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+  127 | void main(){
+      |      ^~~~
+Program7.v.c:127:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+  127 | void main(){
+      |      ^~~~
+Program9.c:150:6: warning: return type of ‘main’ is not ‘int’ [-Wmain]
+  150 | void main(void){
+      |      ^~~~
+Program9.c: In function ‘main’:
+Program9.c:151:13: warning: unused variable ‘i’ [-Wunused-variable]
+  151 |         int i,ch;
+      |             ^
