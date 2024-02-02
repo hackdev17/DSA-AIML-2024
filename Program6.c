@@ -3,12 +3,14 @@
 
 #define max 10
 
-int q[10],front=0,rear= -1;
+int q[10],front=0,rear=-1;
 void main(){
 	int ch;
+	
 	void insert();
 	void delete();
 	void display();
+
 	printf("\nCircular Queue operations\n");
 	printf("1. Insert\n2. Delete\n3. Display\n4. Exit\n");
 	
@@ -45,7 +47,7 @@ void insert(){
 			rear=0;
 			q[rear]=x;
 		}else if((front==0&&rear==-1)||(rear!=front-1))
-				q[++rear]=x;
+			q[++rear]=x;
 	}
 }
 

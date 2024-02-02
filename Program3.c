@@ -13,8 +13,7 @@ void push(){
 	else{
 		printf("Enter the element to be inserted : ");
 		scanf("%d",&item);
-		top++;
-		stack[top]=item;
+		stack[++top]=item;
 	}
 	temp=top;
 }
@@ -23,10 +22,8 @@ void pop(){
 	if(top==-1){
 		printf("Stack Underflow !\n");
 		flag=0;
-	}else{
-		item=stack[top];
-		top--;
-	}
+	}else
+		item=stack[top--];
 }
 
 void pali(){

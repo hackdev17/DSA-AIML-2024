@@ -60,7 +60,7 @@ void display_count(){
 		printf("\nUSN\tNAME\t\tBRANCH\t\tPHONE\t\tSEMESTER\n");
 		while(temp->link!=NULL){
 			count++;
-			printf("%s\t\t%s\t\t%s\t\t%llu\t\t%d\n", \
+			printf("%s\t%s\t\t%s\t\t%llu\t\t%d\n", \
 					temp->usn,temp->name,temp->branch,temp->phno,temp->sem);
 			temp=temp->link;
 		}
@@ -133,10 +133,10 @@ void delete_end(){
 
 void main(){
 	int choice;
+		printf("\n1.Create SSL \n2.Display SSL  \n3.Insert front \
+			\n4.Insert end \n5.Delete front \n6.Delete End   \n7.Exit");
 	while(1){
-		printf("\n1.Create SSL \n2.Display SSL \n3.Insert front\n4.Insert end");
-		printf("\n5.Delete front \n6.Delete End\n7.Exit\n");
-		printf("\nEnter your choice : ");
+		printf("\n> ");
 		scanf("%d",&choice);
 		switch(choice){
 			case 1:

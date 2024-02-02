@@ -17,5 +17,4 @@ ark:
 cdrom:	ark
 	@mkisofs archive.tgz > DSA-CD.iso
 
-# avoid up to date
-.PHONY: doc
+.PHONY:	doc

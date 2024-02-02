@@ -18,9 +18,9 @@ void main(){
 			flag=1;
 			if(PAT[i]=='\0'){
 				for(k=0;REP[k]!='\0';j++,k++)
-				ANS[j]=REP[k];
-					i=0;
-					c=m;
+					ANS[j]=REP[k];
+				i=0;
+				c=m;
 			}
 		}else{
 			ANS[j]=STR[c];
@@ -30,10 +30,9 @@ void main(){
 			i=0;
 		}
 	}
+
 	if(flag==0)
 		printf("Pattern doesn't found !\n");
-	else{
-		ANS[j]='\0';
+	else
 		printf("\nThe resultant string is %s\n",ANS);
-	}
 }

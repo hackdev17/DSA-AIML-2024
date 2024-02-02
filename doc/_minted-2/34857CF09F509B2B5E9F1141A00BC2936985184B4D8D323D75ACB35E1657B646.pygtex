@@ -1,0 +1,40 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{STR}\PYG{p}{[}\PYG{l+m+mi}{100}\PYG{p}{],}\PYG{n}{PAT}\PYG{p}{[}\PYG{l+m+mi}{100}\PYG{p}{],}\PYG{n}{REP}\PYG{p}{[}\PYG{l+m+mi}{100}\PYG{p}{],}\PYG{n}{ANS}\PYG{p}{[}\PYG{l+m+mi}{100}\PYG{p}{];}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{,}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{,}\PYG{n}{m}\PYG{p}{,}\PYG{n}{k}\PYG{p}{,}\PYG{n}{flag}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enter the MAIN string : \PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}[\PYGZca{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{]\PYGZdq{}}\PYG{p}{,}\PYG{n}{STR}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enter the PATTERN string : \PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}s\PYGZdq{}}\PYG{p}{,}\PYG{n}{PAT}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enter the REPLACE string : \PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}s\PYGZdq{}}\PYG{p}{,}\PYG{n}{REP}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{c}\PYG{o}{=}\PYG{n}{i}\PYG{o}{=}\PYG{n}{j}\PYG{o}{=}\PYG{n}{m}\PYG{o}{=}\PYG{n}{k}\PYG{o}{=}\PYG{n}{flag}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{+w}{	}\PYG{k}{while}\PYG{p}{(}\PYG{n}{STR}\PYG{p}{[}\PYG{n}{c}\PYG{p}{]}\PYG{o}{!=}\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}0\PYGZsq{}}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{STR}\PYG{p}{[}\PYG{n}{m}\PYG{p}{]}\PYG{o}{==}\PYG{n}{PAT}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])\PYGZob{}}
+\PYG{+w}{			}\PYG{n}{i}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{m}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{flag}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{PAT}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{==}\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}0\PYGZsq{}}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{				}\PYG{k}{for}\PYG{p}{(}\PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{REP}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{o}{!=}\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}0\PYGZsq{}}\PYG{p}{;}\PYG{n}{j}\PYG{o}{++}\PYG{p}{,}\PYG{n}{k}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{					}\PYG{n}{ANS}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{=}\PYG{n}{REP}\PYG{p}{[}\PYG{n}{k}\PYG{p}{];}
+\PYG{+w}{				}\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{				}\PYG{n}{c}\PYG{o}{=}\PYG{n}{m}\PYG{p}{;}
+\PYG{+w}{			}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{n}{ANS}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{=}\PYG{n}{STR}\PYG{p}{[}\PYG{n}{c}\PYG{p}{];}
+\PYG{+w}{			}\PYG{n}{j}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{c}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{m}\PYG{o}{=}\PYG{n}{c}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{flag}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Pattern doesn\PYGZsq{}t found !}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{	}\PYG{k}{else}
+\PYG{+w}{		}\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{The resultant string is \PYGZpc{}s}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{ANS}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

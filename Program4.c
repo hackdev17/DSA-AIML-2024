@@ -56,7 +56,6 @@ void main(){
 	}
 	while(s[top]!='#')
 		pofx[k++]=pop();
-	pofx[k]='\0';
 	printf("\nGiven Infix expression : %s",infx);
 	printf("\nPostfix expression     : %s\n",pofx);
 }
