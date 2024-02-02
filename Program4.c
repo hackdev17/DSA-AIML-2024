@@ -3,7 +3,7 @@
 
 #define SIZE 50
 
-char s[SIZE];
+char s[SIZE],elem;
 int top=-1;
 
 void push(char elem){
@@ -11,7 +11,7 @@ void push(char elem){
 }
 
 char pop(){
-	return (s[top--]);
+	return s[top--];
 }
 
 int pr(char elem){
@@ -30,10 +30,11 @@ int pr(char elem){
 		case '^':
 			return 4;
 	}
+	return 0;
 }
 
 void main(){
-	char infx[50],pofx[50],ch,elem;
+	char infx[SIZE],pofx[SIZE],ch;
 	int i=0,k=0;
 	
 	printf("\nRead the Infix Expression\n> ");
@@ -49,7 +50,7 @@ void main(){
 				pofx[k++]=pop();
 			elem=pop();
 		}else{
-			while(pr(s[top])>= pr(ch))
+			while(pr(s[top])>=pr(ch))
 				pofx[k++]=pop();
 			push(ch);
 		}

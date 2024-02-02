@@ -15,7 +15,6 @@ void tower(int n,char beg,char aux,char end){
 
 void main(){
 	int n;
-	char a,b,c;
 	printf("Enter the number of Discs :\n> ");
 	scanf("%d",&n);
 	printf("Tower of Hanoi for %d Disc has the following steps :\n",n);

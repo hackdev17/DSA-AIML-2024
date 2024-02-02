@@ -4,37 +4,6 @@
 #define max 10
 
 int q[10],front=0,rear=-1;
-void main(){
-	int ch;
-	
-	void insert();
-	void delete();
-	void display();
-
-	printf("\nCircular Queue operations\n");
-	printf("1. Insert\n2. Delete\n3. Display\n4. Exit\n");
-	
-	while(1){
-		printf("\nEnter your choice : ");
-		scanf("%d",&ch);
-		
-		switch(ch){
-			case 1:
-				insert();
-				break;
-			case 2:
-				delete();
-				break;
-			case 3:
-				display();
-				break;
-			case 4:
-				exit(1);
-				default:
-			printf("Invalid option !\n");
-		}
-	}
-}
 
 void insert(){
 	int x;
@@ -93,3 +62,32 @@ void display(){
 	}
 	printf("\n");
 }
+
+void main(){
+	int ch;
+	
+	printf("\nCircular Queue operations\n");
+	printf("1. Insert\n2. Delete\n3. Display\n4. Exit\n");
+	
+	while(1){
+		printf("\nEnter your choice : ");
+		scanf("%d",&ch);
+		
+		switch(ch){
+			case 1:
+				insert();
+				break;
+			case 2:
+				delete();
+				break;
+			case 3:
+				display();
+				break;
+			case 4:
+				exit(1);
+			default:
+				printf("Invalid option !\n");
+		}
+	}
+}
+

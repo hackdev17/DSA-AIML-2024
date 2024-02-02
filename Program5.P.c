@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<ctype.h>
-#include<math.h>
 #include<string.h>
 
 float compute(char symbol,float op1,float op2){
@@ -46,6 +45,5 @@ void main(){
 		}
 	}
 
-	res=s[top--];
-	printf("The result is %f\n",res);
+	printf("The result is %f\n",s[top--]);
 }

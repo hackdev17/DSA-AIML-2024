@@ -66,7 +66,7 @@ void display_count(){
 		while(temp->link!=NULL){
 			count++;
 			printf("%s\t%s\t\t%s\t\t%llu\t\t%d\n", \
-					temp->usn,temp->name,temp->branch,temp->phno,temp->sem);
+				temp->usn,temp->name,temp->branch,temp->phno,temp->sem);
 			temp=temp->link;
 		}
 

@@ -31,10 +31,9 @@ void main(){
 		}
 	}
 
-	if(flag==0)
-		printf("Pattern doesn't found !\n");
-	else{
+	if(flag){
 		ANS[j]='\0';
 		printf("\nThe resultant string is %s\n",ANS);
-	}
+	}else
+		printf("Pattern doesn't found !\n");
 }
