@@ -6,19 +6,14 @@ float compute(char symbol,float op1,float op2){
 	switch(symbol){
 		case '+' :
 			return op1+op2;
-			break;
 		case '-' :
 			return op1-op2;
-			break;
 		case '*' :
 			return op1*op2;
-			break;
 		case '/' :
 			return op1/op2;
-			break;
 		case '$' :
 			return op1+op2;
-			break;
 		default :
 			return 0;
 	}
