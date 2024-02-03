@@ -50,17 +50,13 @@ void display(){
 			printf("%d ",q[i]);
 		for(j=front;j<=max-1;j++)
 			printf("%d ",q[j]);
-
-		printf("\nRear is at %d\n",q[rear]);
-		printf("Front is at %d\n",q[front]);
 	}else{
 		for(i=front;i<=rear;i++)
 			printf("%d ",q[i]);
-		
-		printf("\nRear is at %d\n",q[rear]);
-		printf("Front is at %d\n",q[front]);
 	}
-	printf("\n");
+		
+	printf("\nRear is at %d",q[rear]);
+	printf("\nFront is at %d\n",q[front]);
 }
 
 void main(){
