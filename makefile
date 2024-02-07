@@ -1,6 +1,9 @@
+CC=cc
+TMP=pdf iso tgz
+
 build:
 	@echo "Building ..."
-	@for i in *.c ; do cc $$i -Wall -o $${i%.c}.bin -lm ; done
+	@for i in *.c ; do $(CC) $$i -Wall -o $${i%.c}.bin -lm ; done
 	@echo "Build Done"
 
 clean:
@@ -16,5 +19,9 @@ ark:
 
 cdrom:	ark
 	@mkisofs archive.tgz > DSA-CD.iso
+
+doc-clean:
+	@for i in $(TMP) ; do find . -name "*$$i*" -delete ; done
+	@rm -rf doc/tmp doc/_minted*
 
 .PHONY:	doc

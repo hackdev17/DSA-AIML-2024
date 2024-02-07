@@ -40,10 +40,10 @@ int main(){
 	
 	printf("\nEnter the starting vertex: ");
 	scanf("%d",&start);
-	printf("\n==>1. BFS : Print all nodes reachable from a given starting node \
-		\n==>2. DFS : Print all nodes reachable from a given starting node \
-		\n==>3. Exit \
-		\nEnter your choice : ");
+	printf("\n1. BFS : Print all nodes reachable from a given starting node \
+		\n2. DFS : Print all nodes reachable from a given starting node \
+		\n3. Exit \
+		\n> ");
 	scanf("%d",&ch);
 	
 	switch(ch){
