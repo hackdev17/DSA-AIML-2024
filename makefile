@@ -20,7 +20,7 @@ ark:
 cdrom:	ark
 	@mkisofs archive.tgz > DSA-CD.iso
 
-doc-clean:
+mclean:
 	@for i in $(TMP) ; do find . -name "*$$i*" -delete ; done
 	@rm -rf doc/tmp doc/_minted*
 
