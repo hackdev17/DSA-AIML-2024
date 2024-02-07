@@ -15,9 +15,6 @@ The Programs here mentioned are the part of the subject "Data Science and Algori
 │   └── ./doc/7.tex
 ├── ./LICENSE
 ├── ./makefile
-├── ./Program10.c
-├── ./Program11.c
-├── ./Program12.c
 ├── ./Program2.c
 ├── ./Program3.c
 ├── ./Program4.c
@@ -27,6 +24,9 @@ The Programs here mentioned are the part of the subject "Data Science and Algori
 ├── ./Program7.c
 ├── ./Program8.c
 ├── ./Program9.c
+├── ./Program10.c
+├── ./Program11.c
+├── ./Program12.c
 └── ./README.md
 ```
 ---
