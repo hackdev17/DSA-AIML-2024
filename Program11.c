@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int a[50][50],visited[50],q[20],s[20],i,n,cur,front=-1,rear=-1,top=-1,count=0;
+int a[50][50],visited[50],q[20],s[20],i,j,n,cur,front=-1,rear=-1,top=-1,count=0;
 
 void bfs(int v){
 	visited[v]=1;
@@ -28,13 +28,13 @@ void dfs(int v){
 }
 
 int main(){
-	int ch,start,i,j;
+	int ch,start;
 	printf("\nEnter the number of vertices in graph : ");
 	scanf("%d",&n);
 	printf("\nEnter the adjacency matrix :\n");
 	for(i=1;i<=n;i++){
 		for(j=1;j<=n;j++)
-			scanf("%d",&a[i][0]);
+			scanf("%d",&a[i][j]);
 		visited[i]=0;
 	}
 	
