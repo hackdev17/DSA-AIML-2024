@@ -133,12 +133,17 @@ void Deletionend(){
 
 int main(){
 	int choice;
-	while(1){
-		printf("\n1.Create DLL of N Employees\n2.Display DLL\n3.Insertion at front");
-		printf("\n4.Insertion at end");
-		printf("\n5.Deletion at front\n6.Deletion at end\n7.Exit\n");
-		printf("\nEnter Your Choice : ");
+		printf("\n1.Create DLL of N Employees \
+			\n2.Display DLL \
+			\n3.Insertion at front \
+			\n4.Insertion at end \
+			\n5.Deletion at front \
+			\n6.Deletion at end \
+			\n7.Exit\n"
+		);
 
+	while(1){
+		printf("\n> ");
 		scanf("%d",&choice);
 
 			switch(choice){

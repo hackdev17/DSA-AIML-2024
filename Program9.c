@@ -154,7 +154,8 @@ void main(){
 		\n4. Display the polynomial B \
 		\n5. Add A & B polynomials \
 		\n6. Evaluate polynomial C \
-		\n7. Exit");
+		\n7. Exit"
+	);
 	
 	while(1){
 		printf("\n> ");

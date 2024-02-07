@@ -9,7 +9,7 @@ struct node{
 	struct node *ltree,*rtree;
 };
 
-typedef struct node* NODE;
+typedef struct node *NODE;
 
 // create a node
 NODE getnode(){
@@ -144,10 +144,9 @@ int main(){
 				break;
 			case 2:
 				// check for empty tree
-				if(root==NULL){
+				if(root==NULL)
 					printf("Tree is empty\n");
-					break;
-				}else{
+				else{
 					// for non-empty tree traverse BST
 					printf("\n\nPREORDER traversal\n");
 					pre(root);
