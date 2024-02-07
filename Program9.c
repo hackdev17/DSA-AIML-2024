@@ -115,7 +115,7 @@ void print(NODE ptr){
 		
 		// move to next node
 		cur=cur->link;
-		if (cur!=ptr)
+		if(cur!=ptr)
 		printf(" + ");
 	}
 }
@@ -145,7 +145,7 @@ void evaluate(NODE ptr){
 	printf("\nresult: %d",res);
 }
 
-void main(void){
+void main(){
 	int ch;
 	NODE a=NULL,b,c;
 	printf("\n1. Represent first polynomial A \
