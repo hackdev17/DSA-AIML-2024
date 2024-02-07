@@ -41,9 +41,7 @@ void insert_front(){
 		temp->link=FIRST;
 		FIRST=temp;
 	}
-}
-
-void create_SSL(){
+} void create_SSL(){
 	int n,i;
 	printf("Enter the number of students : ");
 	scanf("%d",&n);
