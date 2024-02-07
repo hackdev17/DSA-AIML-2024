@@ -65,7 +65,7 @@ void attach(int cf,int x1,int y1,int z1,NODE *ptr){
 }
 
 NODE addpoly(NODE a,NODE b){
-	NODE starta,c ,lastc;
+	NODE starta,c,lastc;
 	int sum,done=0;
 	starta=a;
 	a=a->link;
