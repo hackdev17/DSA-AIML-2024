@@ -1,50 +1,66 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int key[20],n,m,*ht,ind,i,count=0;
+int a[50][50],visited[50],q[20],s[20],i,n,cur,front=-1,rear=-1,top=-1,count=0;
 
-void insert(int key){
-	ind=key%m;
-	while(ht[ind]!=-1)
-		ind=(ind+1)%m;
-	ht[ind]=key;
-	count++;
-}
-
-void display(){
-	if(count==0){
-		printf("\nHash Table is empty !\n");
-		exit(0);
+void bfs(int v){
+	visited[v]=1;
+	q[++rear]=v;
+	while(front!=rear){
+		cur=q[++front];
+		for(i=1;i<=n;i++)
+			if((a[cur][i]==1)&&(visited[i]==0)){
+				q[++rear]=i;
+				visited[i]=1;
+				printf("%d ",i);
+			}
 	}
-
-	printf("\nHash Table contents are :\n");
-	for(i=0;i<m;i++)
-		printf("\n T[%d] --> %d ",i,ht[i]);
-	printf("\n");
-	printf("Total records Inserted : %d\n",count);
 }
 
-void main(){
-	printf("\nEnter the number of employee records (N) : ");
-	scanf("%d",&n);
-
-	printf("\nEnter the two digit memory locations (m) for hash table : ");
-	scanf("%d",&m);
-	ht=(int *)malloc(m*sizeof(int));
-
-	for(i=0;i<m;i++)
-	ht[i]=-1;
-
-	printf("\nEnter the four digit key values (K) for N Employee Records :\n");
-	for(i=0;i<n;i++)
-		scanf("%d",&key[i]);
-
-	for(i=0;i<n;i++){
-		if(count==m){
-			printf("\nHash table is full ! Cannot insert the record %d key",i+1);
-			break;
+void dfs(int v){
+	visited[v]=1;
+	s[++top]=v;
+	for(i=1;i<=n;i++)
+		if((a[v][i]==1)&&(visited[i]==0)){
+			printf("%d ",i);
+			dfs(i);
 		}
-		insert(key[i]);
+}
+
+int main(){
+	int ch,start,i,j;
+	printf("\nEnter the number of vertices in graph : ");
+	scanf("%d",&n);
+	printf("\nEnter the adjacency matrix :\n");
+	for(i=1;i<=n;i++){
+		for(j=1;j<=n;j++)
+			scanf("%d",&a[i][0]);
+		visited[i]=0;
 	}
-	display();	
+	
+	printf("\nEnter the starting vertex: ");
+	scanf("%d",&start);
+	printf("\n==>1. BFS : Print all nodes reachable from a given starting node \
+		\n==>2. DFS : Print all nodes reachable from a given starting node \
+		\n==>3. Exit \
+		\nEnter your choice : ");
+	scanf("%d",&ch);
+	
+	switch(ch){
+		case 1:
+			printf("\nNodes reachable from starting vertex %d are : ",start);
+			bfs(start);
+			for(i=1;i<=n;i++)
+				if(visited[i]==0)
+					printf("\nThe vertex that is not reachable is %d",i);
+			break;
+		case 2:
+			printf("\nNodes reachable from starting vertex %d are :\n",start);
+			dfs(start);
+			break;
+		case 3:
+			exit(0);
+		default:
+			printf("\nPlease enter valid choice !");
+	}
 }

@@ -3,8 +3,7 @@
 #include<math.h>
 
 struct node{
-	int coef;
-	int x,y,z;
+	int coef,x,y,z;
 	struct node *link;
 };
 
@@ -123,8 +122,7 @@ void print(NODE ptr){
 
 // function to evaluate the final polynomial
 void evaluate(NODE ptr){
-	int res=0;
-	int x,y,z,ex,ey,ez,cof;
+	int res=0,x,y,z,ex,ey,ez,cof;
 	NODE cur;
 	
 	// read values of X,Y and Z
@@ -148,7 +146,7 @@ void evaluate(NODE ptr){
 }
 
 void main(void){
-	int i,ch;
+	int ch;
 	NODE a=NULL,b,c;
 	printf("\n1. Represent first polynomial A \
 		\n2. Represent Second polynomial B \
