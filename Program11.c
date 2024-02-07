@@ -21,7 +21,7 @@ void dfs(int v){
 	visited[v]=1;
 	s[++top]=v;
 	for(i=1;i<=n;i++)
-		if((a[v][i]==1)&&(visited[i]==0)){
+		if(a[v][i]==1&&visited[i]==0){
 			printf("%d ",i);
 			dfs(i);
 		}
@@ -48,11 +48,11 @@ int main(){
 	
 	switch(ch){
 		case 1:
-			printf("\nNodes reachable from starting vertex %d are : ",start);
+			printf("\nNodes reachable from starting vertex %d are :\n",start);
 			bfs(start);
 			for(i=1;i<=n;i++)
 				if(visited[i]==0)
-					printf("\nThe vertex that is not reachable is %d",i);
+					printf("\nThe vertex that is not reachable is %d\n",i);
 			break;
 		case 2:
 			printf("\nNodes reachable from starting vertex %d are :\n",start);
@@ -61,6 +61,6 @@ int main(){
 		case 3:
 			exit(0);
 		default:
-			printf("\nPlease enter valid choice !");
+			printf("Please enter valid choice !\n");
 	}
 }
