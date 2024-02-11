@@ -9,7 +9,6 @@ struct node{
 
 typedef struct node *NODE;
 
-// create a node
 NODE getnode(){
 	NODE x;
 	x=(NODE)malloc(sizeof(struct node));
@@ -104,40 +103,33 @@ NODE addpoly(NODE a,NODE b){
 	return c;
 }
 
-// to print the polynomial
 void print(NODE ptr){
 	NODE cur;
 	cur=ptr->link;
 	
-	// To print from HEAD node till END node
 	while(cur!=ptr){
 		printf("%d*x^%d*y^%d*z^%d",cur->coef,cur->x,cur->y,cur->z);
 		
-		// move to next node
 		cur=cur->link;
 		if(cur!=ptr)
 		printf(" + ");
 	}
 }
 
-// function to evaluate the final polynomial
 void evaluate(NODE ptr){
 	int res=0,x,y,z,ex,ey,ez,cof;
 	NODE cur;
 	
-	// read values of X,Y and Z
 	printf("\nEnter the values of x,y,z : ");
 	scanf("%d%d%d",&x,&y,&z);
 	
-	// start with HEAD
 	cur=ptr->link;
 	
-	// Repeat until the end of list
 	while(cur!=ptr){
-		ex=cur->x;	// exponent of x
-		ey=cur->y;	// exponent of y
-		ez=cur->z;	// exponent of z
-		cof=cur->coef;	// coefficient
+		ex=cur->x;
+		ey=cur->y;
+		ez=cur->z;
+		cof=cur->coef;
 		res+=cof*pow(x,ex)*pow(y,ey)*pow(z,ez);
 		
 		cur=cur->link;
