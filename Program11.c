@@ -43,7 +43,8 @@ int main(){
 	printf("\n1. BFS : Print all nodes reachable from a given starting node \
 		\n2. DFS : Print all nodes reachable from a given starting node \
 		\n3. Exit \
-		\n> ");
+		\n> "
+	);
 	scanf("%d",&ch);
 	
 	switch(ch){
