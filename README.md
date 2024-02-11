@@ -7,14 +7,21 @@ The Programs here mentioned are the part of the subject "Data Science and Algori
 ```
 .
 ├── ./doc
+│   ├── ./doc/1.tex
 │   ├── ./doc/2.tex
 │   ├── ./doc/3.tex
 │   ├── ./doc/4.tex
 │   ├── ./doc/5.tex
 │   ├── ./doc/6.tex
-│   └── ./doc/7.tex
+│   ├── ./doc/7.tex
+│   ├── ./doc/8.tex
+│   ├── ./doc/9.tex
+│   ├── ./doc/10.tex
+│   ├── ./doc/11.tex
+│   └── ./doc/12.tex
 ├── ./LICENSE
 ├── ./makefile
+├── ./Program1.c
 ├── ./Program2.c
 ├── ./Program3.c
 ├── ./Program4.c
