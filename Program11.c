@@ -25,6 +25,7 @@ void dfs(int v){
 			printf("%d ",i);
 			dfs(i);
 		}
+	printf("\n");
 }
 
 int main(){
