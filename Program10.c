@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int flag=0;
-
 struct node{
 	int value;
 	struct node *ltree,*rtree;
@@ -33,14 +31,13 @@ NODE create(int item,NODE root){
 	while (cur!=NULL){
 		prev=cur;
 		if(temp->value==cur->value){
-			flag=1;
-			break;
+			return root;
 		}
 		cur=(temp->value<cur->value)?cur->ltree:cur->rtree;
 	}
-	if(flag==0&&temp->value<prev->value)
+	if(temp->value<prev->value)
 		prev->ltree=temp;
-	else if(flag==0&&temp->value>prev->value)
+	else if(temp->value>prev->value)
 		prev->rtree=temp;
 	return root;
 }
@@ -70,7 +67,7 @@ void post(NODE POST){
 }
 
 void search(NODE root){
-	int item,found=0;
+	int item;
 	NODE cur;
 	printf("Enter the element to be searched : ");
 	scanf("%d",&item);
@@ -82,8 +79,8 @@ void search(NODE root){
 	
 	while(cur!=NULL){
 		if(item==cur->value){
-			found=1;
 			printf("Found key %d in tree\n",cur->value);
+			return ;
 		}
 		
 		if(item<cur->value)
@@ -93,17 +90,17 @@ void search(NODE root){
 			cur=cur->rtree;
 	}
 
-	if(found==0)
-		printf("Key not found\n");
+	printf("Key not found\n");
 }
 
 int main(){
 	int choice,item,n,i;
 	NODE root=NULL;
-	printf("\n1. Create BST of N Integers \
-		\n2. BST Traversal \
-		\n3. Binary Search \
-		\n4. Exit"
+	printf( \
+		"\n1. Create BST of N Integers \
+		 \n2. BST Traversal \
+		 \n3. Binary Search \
+		 \n4. Exit"
 	);
 
 	while(1){

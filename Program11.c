@@ -41,10 +41,11 @@ int main(){
 	
 	printf("\nEnter the starting vertex: ");
 	scanf("%d",&start);
-	printf("\n1. BFS : Print all nodes reachable from a given starting node \
-		\n2. DFS : Print all nodes reachable from a given starting node \
-		\n3. Exit \
-		\n> "
+	printf( \
+		"\n1. BFS : Print all nodes reachable from a given starting node \
+		 \n2. DFS : Print all nodes reachable from a given starting node \
+		 \n3. Exit \
+		 \n> "
 	);
 	scanf("%d",&ch);
 	
