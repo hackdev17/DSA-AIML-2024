@@ -1,29 +1,27 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+int n=0,count=0;
 struct node{
-	char usn[12],name[20],dept[25],desig[20];
+	char ssn[12],name[20],dept[25],desig[20];
 	unsigned long long int phno;
 	float sal;
-	struct node *prev;
-	struct node *next;
+	struct node *prev,*next;
 };
 
 typedef struct node *NODE;
-NODE temp,FIRST=NULL,END=NULL;
+NODE x,temp,FIRST=NULL,END=NULL;
 
 NODE getnode(){
-	NODE x;
 	x=(NODE)malloc(sizeof(struct node));
-	x->prev=NULL;
-	x->next=NULL;
+	x->prev=x->next=NULL;
 	return x;
 }
 
 void read(){
 	temp=getnode();
-	printf("Enter USN : ");
-	scanf("%s",temp->usn);
+	printf("Enter SSN : ");
+	scanf("%s",temp->ssn);
 	printf("Enter Name :\n");
 	scanf("%s",temp->name);
 	printf("Enter Department : ");
@@ -34,50 +32,47 @@ void read(){
 	scanf("%llu",&temp->phno);
 	printf("Enter Salary : ");
 	scanf("%f",&temp->sal);
+}
 
+void Insertionend(){
+	printf("Enter the details of the employee\n");
+	read();
+	if(FIRST==NULL)
+		FIRST=END=temp;
+	else{
+		END->next=temp;
+		temp->prev=END;
+		END=temp;
+	}
 }
 
 void Create_DLL(){
-	int n,i=1;
 	printf("Enter the number of Employees : ");
 	scanf("%d",&n);
-	while(i<=n){
-		printf("Enter the details of the %d employee\n",i++);
-		read();
-
-		if(FIRST==NULL)
-			FIRST=END=temp;
-		else{
-			END->next=temp;
-			temp->prev=END;
-			END=temp;
-		}
-	}
+	while(n>0)
+		Insertionend();
 }
 
 void display_count(){
 	temp=FIRST;
-	int count=0;
 	if(FIRST==NULL)
 		printf("The Employee detail is NULL and count is %d\n",count);
 	else{
 		printf("Employee details:\n");
-		printf("USN \tEMPLOYEE NAME\tDEPARTMENT\tDESIGNATION\tPHONE NUMBER\tSALARY");
+		printf("SSN \tEMPLOYEE NAME\tDEPARTMENT\tDESIGNATION\tPHONE NUMBER\tSALARY");
 		while(temp!=NULL){
 			count++;
 			printf("\n%s\t%s\t%s\t\t%s\t\t%llu\t\t%0.2f",\
-					temp->usn,temp->name,temp->dept,temp->desig,temp->phno,temp->sal);
+				temp->ssn,temp->name,temp->dept,temp->desig,temp->phno,temp->sal);
 			temp=temp->next;
 		}
 			printf("\n Employee count is %d\n",count);
 	}
-
 }
 
 void Insertionfront(){
 	printf("Enter the details of the employee\n");
 	read();
-
 	if(FIRST==NULL)
 		FIRST=END=temp;
 	else{
@@ -87,46 +82,36 @@ void Insertionfront(){
 	}
 }
 
-void Insertionend(){
-	printf("Enter the details of the new employee\n");
-	read();
-	if(FIRST==NULL)
-		FIRST=END=temp;
-	else{
-		END->next=temp;
-		temp->prev=END;
-		END=temp;
-	}
-
-}
 void Deletionfront(){
 	temp=FIRST;
 	if(FIRST==NULL)
 		printf("List is empty !\n");
-	else if(FIRST==END){
-		printf("Deleted element is %s\n",temp->usn);
-		FIRST=END=NULL;
-		free(temp);
-	}else{
-		printf("Deleted element is %s\n",temp->usn);
-		FIRST=FIRST->next;
-		FIRST->prev=NULL;
+	else{
+		printf("Deleted element is %s\n",temp->ssn);
+		count--;
+		if(FIRST==END)
+			FIRST=END=NULL;
+		else{
+			FIRST=FIRST->next;
+			FIRST->prev=NULL;
+		}
 		free(temp);
 	}
-
 }
+
 void Deletionend(){
 	temp=END;
 	if(FIRST==NULL)
 		printf("List is empty !\n");
-	else if(FIRST==END){
-		printf("Deleted element is %s\n",temp->usn);
-		FIRST=END=NULL;
-		free(temp);
-	}else{
-		printf("Deleted element is %s\n",temp->usn);
-		END=END->prev;
-		END->next=NULL;
+	else{
+		printf("Deleted element is %s\n",temp->ssn);
+		count--;
+		if(FIRST==END)
+			FIRST=END=NULL;
+		else{
+			END=END->prev;
+			END->next=NULL;
+		}
 		free(temp);
 	}
 }
@@ -141,11 +126,9 @@ int main(){
 			\n6.Deletion at end \
 			\n7.Exit\n"
 		);
-
 	while(1){
 		printf("\n> ");
 		scanf("%d",&choice);
-
 			switch(choice){
 				case 1 :
 					Create_DLL();

@@ -3,12 +3,16 @@
 
 % packages
 \usepackage{calc}
-\usepackage[a4paper,margin=.5in,paperheight=\paperheight+17.5in]{geometry}
+\usepackage[a4paper,margin=.5in,paperheight=\paperheight+18in+15em]{geometry}
 \usepackage{minted}
 \usepackage{enumitem}
+\usepackage{pagecolor}
 
 % presets
 \pagestyle{empty}
+\pagecolor{black}
+\usemintedstyle{one-dark}
+\color{white}
 
 % commands
 \newcommand{\answer}{\item [$\rightarrow$]}
@@ -25,6 +29,6 @@
 			\item Demonstrate how this DLL can be used as Double Ended Queue.
 			\item Exit
 		\end{enumerate}
-		\answer \inputminted{c}{../Program7.c}
+		\answer \inputminted{c}{../Program8.c}
 	\end{itemize}
 \end{document}

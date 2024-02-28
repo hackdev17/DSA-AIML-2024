@@ -8,39 +8,32 @@ struct node{
 };
 
 typedef struct node *NODE;
+NODE temp,head,cur,x,a=NULL,b,c;
 
 NODE getnode(){
-	NODE x;
 	x=(NODE)malloc(sizeof(struct node));
 	return x;
 }
 
 NODE readpoly(){
-	NODE temp,head,cur;
 	char ch;
 	head=getnode();
 	head->coef=head->x=head->y=head->z=-1;
 	head->link=head;
-	do{
-		temp=getnode();
-		
-		printf("\nEnter the coefficient and exponents in decreasing order : ");
-		scanf("%d%d%d%d",&temp->coef,&temp->x,&temp->y,&temp->z);
-		
-		cur=head;
-		
-		while(cur->link!=head)
-			cur=cur->link;
-		
-		cur->link=temp;
-		temp->link=head;
-		
-		printf("\nDo you want to enter more coefficients (Y/N) : ");
-		fflush(stdin);
-		scanf(" %c",&ch);
-	
-	}while(ch=='y'||ch=='Y');
-	
+	loop:
+	temp=getnode();
+	printf("\nEnter the coefficient and exponents in decreasing order : ");
+	scanf("%d%d%d%d",&temp->coef,&temp->x,&temp->y,&temp->z);
+	cur=head;
+	while(cur->link!=head)
+		cur=cur->link;
+	cur->link=temp;
+	temp->link=head;
+	printf("\nDo you want to enter more coefficients (Y/N) : ");
+	fflush(stdin);
+	scanf(" %c",&ch);
+	if(ch=='y'||ch=='Y')
+		goto loop;
 	return head;
 }
 
@@ -53,7 +46,6 @@ int compare(NODE a,NODE b){
 }
 
 void attach(int cf,int x1,int y1,int z1,NODE *ptr){
-	NODE temp;
 	temp=getnode();
 	temp->coef=cf;
 	temp->x=x1;
@@ -64,15 +56,14 @@ void attach(int cf,int x1,int y1,int z1,NODE *ptr){
 }
 
 NODE addpoly(NODE a,NODE b){
-	NODE starta,c,lastc;
+	NODE starta;
 	int sum,done=0;
 	starta=a;
 	a=a->link;
 	b=b->link;
 	c=getnode();
 	c->coef=c->x=c->y=c->z=-1;
-	lastc=c;
-	
+	NODE lastc=c;
 	do{
 		switch(compare(a,b)){
 			case -1:
@@ -98,18 +89,14 @@ NODE addpoly(NODE a,NODE b){
 				break;
 		}
 	}while(!done);
-	
 	lastc->link=c;
 	return c;
 }
 
 void print(NODE ptr){
-	NODE cur;
 	cur=ptr->link;
-	
 	while(cur!=ptr){
 		printf("%d*x^%d*y^%d*z^%d",cur->coef,cur->x,cur->y,cur->z);
-		
 		cur=cur->link;
 		if(cur!=ptr)
 		printf(" + ");
@@ -118,7 +105,6 @@ void print(NODE ptr){
 
 void evaluate(NODE ptr){
 	int res=0,x,y,z,ex,ey,ez,cof;
-	NODE cur;
 	
 	printf("\nEnter the values of x,y,z : ");
 	scanf("%d%d%d",&x,&y,&z);
@@ -139,7 +125,6 @@ void evaluate(NODE ptr){
 
 void main(){
 	int ch;
-	NODE a=NULL,b,c;
 	printf("\n1. Represent first polynomial A \
 		\n2. Represent Second polynomial B \
 		\n3. Display the polynomial A \
