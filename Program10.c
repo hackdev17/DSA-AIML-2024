@@ -19,20 +19,16 @@ NODE create(int item,NODE root){
 	NODE temp,cur,prev;
 	temp=getnode();
 	temp->value=item;
-
 	if(root==NULL){
 		root=temp;
 		return root;
 	}
-
 	prev=NULL;
 	cur=root;
-
 	while (cur!=NULL){
 		prev=cur;
-		if(temp->value==cur->value){
+		if(temp->value==cur->value)
 			return root;
-		}
 		cur=(temp->value<cur->value)?cur->ltree:cur->rtree;
 	}
 	if(temp->value<prev->value)
@@ -71,25 +67,19 @@ void search(NODE root){
 	NODE cur;
 	printf("Enter the element to be searched : ");
 	scanf("%d",&item);
-	
 	if(root==NULL)
 		printf("tree is empty\n");
-	
 	cur=root;
-	
 	while(cur!=NULL){
 		if(item==cur->value){
 			printf("Found key %d in tree\n",cur->value);
 			return ;
 		}
-		
 		if(item<cur->value)
 			cur=cur->ltree;
 		else
-		
 			cur=cur->rtree;
 	}
-
 	printf("Key not found\n");
 }
 
@@ -102,7 +92,6 @@ int main(){
 		 \n3. Binary Search \
 		 \n4. Exit"
 	);
-
 	while(1){
 		printf("\n> ");
 		scanf("%d",&choice);
