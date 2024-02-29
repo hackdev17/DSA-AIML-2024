@@ -34,7 +34,6 @@ void read(){
 
 void insert_front(){
 	read();
-
 	if(FIRST==NULL)
 		FIRST=temp;
 	else{
@@ -45,7 +44,6 @@ void insert_front(){
 	int n,i;
 	printf("Enter the number of students : ");
 	scanf("%d",&n);
-
 	for(i=1;i<=n;i++){
 		printf("Enter the details of the student %d\n",i);
 		insert_front();
@@ -56,24 +54,18 @@ void display_count(){
 	int count=1;
 	temp=FIRST;
 	printf("Student details :\n");
-
 	if(FIRST==NULL)
 		printf("Student detail is NULL and the count is 0\n");
 	else{
 		printf("\nUSN\tNAME\t\tBRANCH\t\tPHONE\t\tSEMESTER\n");
 		while(temp->link!=NULL){
 			count++;
-			temp=temp->link;
 			printf( \
 				"%s\t%s\t\t%s\t\t%llu\t\t%d\n", \
 				temp->usn,temp->name,temp->branch,temp->phno,temp->sem \
 			);
+			temp=temp->link;
 		}
-		printf( \
-			"%s\t%s\t\t%s\t\t%llu\t\t%d\n", \
-			temp->usn,temp->name,temp->branch,temp->phno,temp->sem \
-		);
-
 		printf("\nStudent count is %d\n",count);
 	}
 }
@@ -82,7 +74,6 @@ NODE insert_end(){
 	NODE last=FIRST;
 	printf("Enter the details of the students :\n");
 	read();
-
 	if(FIRST==NULL)
 		FIRST=temp;
 	else{
@@ -107,7 +98,6 @@ void delete_front(){
 void delete_end(){
 	NODE last=NULL;
 	temp=FIRST;
-
 	if(FIRST==NULL)
 		printf("List is empty !\n");
 	else if(FIRST->link==NULL){
@@ -119,7 +109,6 @@ void delete_end(){
 			last=temp;
 			temp=temp->link;
 		}
-
 		last->link=NULL;
 		printf("Deleted element is %s\n",temp->usn);
 		free(temp);
