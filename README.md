@@ -7,6 +7,9 @@ The Programs here mentioned are the part of the subject "Data Science and Algori
 ```
 .
 ├── ./doc
+│   ├── ./doc/10.tex
+│   ├── ./doc/11.tex
+│   ├── ./doc/12.tex
 │   ├── ./doc/1.tex
 │   ├── ./doc/2.tex
 │   ├── ./doc/3.tex
@@ -16,24 +19,47 @@ The Programs here mentioned are the part of the subject "Data Science and Algori
 │   ├── ./doc/7.tex
 │   ├── ./doc/8.tex
 │   ├── ./doc/9.tex
-│   ├── ./doc/10.tex
-│   ├── ./doc/11.tex
-│   └── ./doc/12.tex
+│   └── ./doc/short
+│       ├── ./doc/short/10.tex
+│       ├── ./doc/short/11.tex
+│       ├── ./doc/short/12.tex
+│       ├── ./doc/short/1.tex
+│       ├── ./doc/short/2.tex
+│       ├── ./doc/short/3.tex
+│       ├── ./doc/short/4.tex
+│       ├── ./doc/short/5.tex
+│       ├── ./doc/short/6.tex
+│       ├── ./doc/short/7.tex
+│       ├── ./doc/short/8.tex
+│       └── ./doc/short/9.tex
 ├── ./LICENSE
 ├── ./makefile
-├── ./Program1.c
-├── ./Program2.c
-├── ./Program3.c
-├── ./Program4.c
-├── ./Program5.H.c
-├── ./Program5.P.c
-├── ./Program6.c
-├── ./Program7.c
-├── ./Program8.c
-├── ./Program9.c
+├── ./Program10.bin
 ├── ./Program10.c
+├── ./Program11.bin
 ├── ./Program11.c
+├── ./Program12.bin
 ├── ./Program12.c
+├── ./Program1.bin
+├── ./Program1.c
+├── ./Program2.bin
+├── ./Program2.c
+├── ./Program3.bin
+├── ./Program3.c
+├── ./Program4.bin
+├── ./Program4.c
+├── ./Program5.H.bin
+├── ./Program5.H.c
+├── ./Program5.P.bin
+├── ./Program5.P.c
+├── ./Program6.bin
+├── ./Program6.c
+├── ./Program7.bin
+├── ./Program7.c
+├── ./Program8.bin
+├── ./Program8.c
+├── ./Program9.bin
+├── ./Program9.c
 └── ./README.md
 ```
 ---
