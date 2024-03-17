@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct day{
+typedef struct day{
     char *dayname;
     int d,m,y;
     char *activitydescription;
-};
+}Day;
 
-void create(struct day *calendar){
+void create(Day *calendar){
         char *daynames[]= \
                 {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
         for(int i=0;i<7;i++){
@@ -18,7 +18,7 @@ void create(struct day *calendar){
         }
 }
 
-void read(struct day *calendar){
+void read(Day *calendar){
         for(int i=0;i<7;i++){
                 printf("Enter date for %s in dd/mm/yy : ",calendar[i].dayname);
                 scanf("%d%d%d",&calendar[i].d,&calendar[i].m,&calendar[i].y);
@@ -30,7 +30,7 @@ void read(struct day *calendar){
         }
 }
 
-void display(struct day *calendar){
+void display(Day *calendar){
         printf("%-10s %-10s %-10s\n","Day","Date","Activity");
         for(int i=0;i<7;++i){
                 printf("%-10s %d/%d/%d %-10s\n", \
@@ -42,7 +42,7 @@ void display(struct day *calendar){
 }
 
 int main(){
-        struct day *calendar=(struct day *)malloc(7*sizeof(struct day));
+        Day *calendar=(Day *)malloc(7*sizeof(Day));
         if(calendar==NULL){
                 fprintf(stderr,"Memory allocation failed\n");
                 return 1;

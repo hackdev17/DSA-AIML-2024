@@ -1,0 +1,63 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdio.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}stdlib.h\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}string.h\PYGZgt{}}
+
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{day}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{dayname}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{,}\PYG{n}{m}\PYG{p}{,}\PYG{n}{y}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{activitydescription}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{create}\PYG{p}{(}\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{day}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{calendar}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{daynames}\PYG{p}{[]}\PYG{o}{=}\PYG{+w}{ }\PYGZbs{}
+\PYG{+w}{                }\PYG{p}{\PYGZob{}}\PYG{l+s}{\PYGZdq{}Monday\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Tuesday\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Wednesday\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Thursday\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Friday\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Saturday\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Sunday\PYGZdq{}}\PYG{p}{\PYGZcb{};}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{7}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{dayname}\PYG{o}{=}\PYG{n}{strdup}\PYG{p}{(}\PYG{n}{daynames}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+\PYG{+w}{                }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{bufferSize}\PYG{o}{=}\PYG{l+m+mi}{256}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{activitydescription}\PYG{o}{=}\PYG{p}{(}\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{n}{bufferSize}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k+kt}{char}\PYG{p}{));}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{read}\PYG{p}{(}\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{day}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{calendar}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{7}\PYG{p}{;}\PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enter date for \PYGZpc{}s in dd/mm/yy : \PYGZdq{}}\PYG{p}{,}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{dayname}\PYG{p}{);}
+\PYG{+w}{                }\PYG{n}{scanf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d\PYGZpc{}d\PYGZpc{}d\PYGZdq{}}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{d}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{m}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{y}\PYG{p}{);}
+\PYG{+w}{                }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Enter activity for \PYGZpc{}s : \PYGZdq{}}\PYG{p}{,}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{dayname}\PYG{p}{);}
+\PYG{+w}{                }\PYG{k}{while}\PYG{p}{(}\PYG{n}{getchar}\PYG{p}{()}\PYG{o}{!=}\PYG{l+s+sc}{\PYGZsq{}\PYGZbs{}n\PYGZsq{}}\PYG{p}{)}
+\PYG{+w}{                    }\PYG{p}{;}
+\PYG{+w}{                }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{bufferSize}\PYG{o}{=}\PYG{l+m+mi}{256}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{getline}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{activitydescription}\PYG{p}{,}\PYG{o}{\PYGZam{}}\PYG{n}{bufferSize}\PYG{p}{,}\PYG{n}{stdin}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{display}\PYG{p}{(}\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{day}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{calendar}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}\PYGZhy{}10s \PYGZpc{}\PYGZhy{}10s \PYGZpc{}\PYGZhy{}10s}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Day\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Date\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Activity\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{7}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}\PYGZhy{}10s \PYGZpc{}d/\PYGZpc{}d/\PYGZpc{}d \PYGZpc{}\PYGZhy{}10s}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYGZbs{}
+\PYG{+w}{                        }\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{dayname}\PYG{p}{,}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{d}\PYG{p}{,}\PYG{+w}{ }\PYGZbs{}
+\PYG{+w}{                        }\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{m}\PYG{p}{,}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYGZbs{}
+\PYG{+w}{                        }\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{activitydescription}
+\PYG{+w}{                }\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{day}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{calendar}\PYG{o}{=}\PYG{p}{(}\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{day}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{)}\PYG{n}{malloc}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{o}{*}\PYG{k}{sizeof}\PYG{p}{(}\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{day}\PYG{p}{));}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{calendar}\PYG{o}{==}\PYG{n+nb}{NULL}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{fprintf}\PYG{p}{(}\PYG{n}{stderr}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}Memory allocation failed}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{                }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{n}{create}\PYG{p}{(}\PYG{n}{calendar}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{read}\PYG{p}{(}\PYG{n}{calendar}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{display}\PYG{p}{(}\PYG{n}{calendar}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{7}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{free}\PYG{p}{(}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{dayname}\PYG{p}{);}
+\PYG{+w}{                }\PYG{n}{free}\PYG{p}{(}\PYG{n}{calendar}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{activitydescription}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{free}\PYG{p}{(}\PYG{n}{calendar}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
