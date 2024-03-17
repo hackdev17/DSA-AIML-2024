@@ -14,6 +14,11 @@ doc:
 	@latexmk -pdf -auxdir=tmp/ -shell-escape -cd doc/*.tex
 	@gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=DSA-LAB.pdf -dBATCH doc/{1..12}.pdf
 
+short:
+	@latexmk -pdf -auxdir=tmp/ -shell-escape -cd doc/short/*.tex
+	@gs -dNOPAUSE -sDEVICE=pdfwrite \
+		-sOUTPUTFILE=doc/short/DSA-LAB_short.pdf -dBATCH doc/short/{1..12}.pdf
+
 ark:
 	@tar -zcvf archive.tgz *.c makefile doc/*.tex
 
@@ -23,7 +28,7 @@ cdrom:	ark
 mclean:
 	@echo "Removing misc files *.pdf *.iso *.tgz ..."
 	@for i in $(TMP) ; do find . -name "*$$i*" -delete ; done
-	@rm -rf doc/tmp doc/_minted*
+	@rm -rf doc/tmp doc/_minted* doc/short/tmp doc/short/_minted*
 	@echo "Removed misc files ..."
 
 .PHONY:	doc
