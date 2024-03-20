@@ -2,41 +2,41 @@
 #include <stdlib.h>
 #include <string.h>
 
+size_t bs=256;
+
 typedef struct day{
-    char *dayname;
+    char *day;
     int d,m,y;
-    char *activitydescription;
+    char *AD;
 }Day;
 
 void create(Day *calendar){
-        char *daynames[]= \
+        char *Days[]= \
                 {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
         for(int i=0;i<7;i++){
-                calendar[i].dayname=strdup(daynames[i]);
-                size_t bufferSize=256;
-                calendar[i].activitydescription=(char *)malloc(bufferSize*sizeof(char));
+                calendar[i].day=strdup(Days[i]);
+                calendar[i].AD=(char *)malloc(bs*sizeof(char));
         }
 }
 
 void read(Day *calendar){
         for(int i=0;i<7;i++){
-                printf("Enter date for %s in dd/mm/yy : ",calendar[i].dayname);
+                printf("Enter date for %s in dd/mm/yy : ",calendar[i].day);
                 scanf("%d%d%d",&calendar[i].d,&calendar[i].m,&calendar[i].y);
-                printf("Enter activity for %s : ",calendar[i].dayname);
+                printf("Enter activity for %s : ",calendar[i].day);
                 while(getchar()!='\n')
                     ;
-                size_t bufferSize=256;
-                getline(&calendar[i].activitydescription,&bufferSize,stdin);
+                getline(&calendar[i].AD,&bs,stdin);
         }
 }
 
 void display(Day *calendar){
-        printf("%-10s %-10s %-10s\n","Day","Date","Activity");
+        printf("%-10s %-10s \t %s\n","Day","Date","Activity");
         for(int i=0;i<7;++i){
-                printf("%-10s %d/%d/%d %-10s\n", \
-                        calendar[i].dayname,calendar[i].d, \
+                printf("%-10s %d/%d/%d \t %s\n", \
+                        calendar[i].day,calendar[i].d, \
                         calendar[i].m,calendar[i].y, \
-                        calendar[i].activitydescription
+                        calendar[i].AD
                 );
         }
 }
@@ -53,8 +53,8 @@ int main(){
         display(calendar);
 
         for(int i=0;i<7;++i){
-                free(calendar[i].dayname);
-                free(calendar[i].activitydescription);
+                free(calendar[i].day);
+                free(calendar[i].AD);
         }
         free(calendar);
         return 0;
