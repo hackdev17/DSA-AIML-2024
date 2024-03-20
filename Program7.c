@@ -1,14 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct node{
+typedef struct node{
 	char usn[20],name[10],branch[5];
 	unsigned long long int phno;
 	int sem;
 	struct node *link;
-};
+}*NODE;
 
-typedef struct node *NODE;
 NODE temp,FIRST=NULL;
 
 NODE getnode(){

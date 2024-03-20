@@ -2,14 +2,13 @@
 #include<stdlib.h>
 
 int n=0,count=0;
-struct node{
+typedef struct node{
 	char ssn[12],name[20],dept[25],desig[20];
 	unsigned long long int phno;
 	float sal;
 	struct node *prev,*next;
-};
+}*NODE;
 
-typedef struct node *NODE;
 NODE x,temp,FIRST=NULL,END=NULL;
 
 NODE getnode(){

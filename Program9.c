@@ -2,12 +2,11 @@
 #include<stdlib.h>
 #include<math.h>
 
-struct node{
+typedef struct node{
 	int coef,x,y,z;
 	struct node *link;
-};
+}*NODE;
 
-typedef struct node *NODE;
 NODE temp,head,cur,x,a=NULL,b,c;
 
 NODE getnode(){

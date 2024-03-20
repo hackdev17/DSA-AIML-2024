@@ -1,12 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct node{
+typedef struct node{
 	int value;
 	struct node *ltree,*rtree;
-};
-
-typedef struct node *NODE;
+}*NODE;
 
 NODE getnode(){
 	NODE x;
