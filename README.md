@@ -34,31 +34,18 @@ The Programs here mentioned are the part of the subject "Data Science and Algori
 │       └── ./doc/short/9.tex
 ├── ./LICENSE
 ├── ./makefile
-├── ./Program10.bin
 ├── ./Program10.c
-├── ./Program11.bin
 ├── ./Program11.c
-├── ./Program12.bin
 ├── ./Program12.c
-├── ./Program1.bin
 ├── ./Program1.c
-├── ./Program2.bin
 ├── ./Program2.c
-├── ./Program3.bin
 ├── ./Program3.c
-├── ./Program4.bin
 ├── ./Program4.c
-├── ./Program5.H.bin
 ├── ./Program5.H.c
-├── ./Program5.P.bin
 ├── ./Program5.P.c
-├── ./Program6.bin
 ├── ./Program6.c
-├── ./Program7.bin
 ├── ./Program7.c
-├── ./Program8.bin
 ├── ./Program8.c
-├── ./Program9.bin
 ├── ./Program9.c
 └── ./README.md
 ```

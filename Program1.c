@@ -5,9 +5,8 @@
 size_t bs=256;
 
 typedef struct day{
-    char *day;
+    char *day,*AD;
     int d,m,y;
-    char *AD;
 }Day;
 
 void create(Day *cal){

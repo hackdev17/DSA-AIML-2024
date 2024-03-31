@@ -3,25 +3,23 @@
 
 #define max 10
 
-int q[10],front=0,rear=-1;
+int q[10],front=0,rear=-1,a;
 
 void insert(){
-	int x;
 	if((front==0&&rear==max-1)||(front>0&&rear==front-1))
 		printf("Queue is overflow !\n");
 	else{
 		printf("Enter element to be insert : ");
-		scanf("%d",&x);
+		scanf("%d",&a);
 		if(rear==max-1&&front>0){
 			rear=0;
-			q[rear]=x;
+			q[rear]=a;
 		}else if((front==0&&rear==-1)||(rear!=front-1))
-			q[++rear]=x;
+			q[++rear]=a;
 	}
 }
 
 void delete(){
-	int a;
 	if((front==0)&&(rear==-1)){
 		printf("Queue is underflow !\n");
 		exit(1);
